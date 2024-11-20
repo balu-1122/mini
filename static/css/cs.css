@@ -1,0 +1,108 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7fa;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    height: 100vh;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1 {
+    text-align: center;
+    color: #007bff;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+/* List styling */
+ul {
+    list-style-type: none;
+    width: 100%;
+    max-width: 800px;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: auto;
+    flex-wrap: wrap;
+}
+
+li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+li strong {
+    color: #007bff;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Job details styling */
+.job-details {
+    flex: 1;
+    font-size: 1rem;
+    color: #555;
+    display: inline-block;
+    margin-right: 20px;
+}
+
+/* Apply Button Styling */
+button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    white-space: nowrap;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+button[type="submit"].applying {
+    background-color: #ffc107;
+}
+
+/* No jobs available styling */
+p {
+    text-align: center;
+    color: #666;
+    font-size: 1.2rem;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    li {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    button[type="submit"] {
+        width: 100%;
+        margin-top: 10px;
+    }
+}

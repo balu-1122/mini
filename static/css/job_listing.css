@@ -1,0 +1,128 @@
+/* Container Styling */
+.job-listing-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading Styling */
+.job-listing-heading {
+    text-align: center;
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Job Listing Box */
+.job-listing-box {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Job Row */
+.job-row {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    transition: box-shadow 0.3s;
+    background-color: #fff;
+}
+
+.job-row:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Job Icon */
+.job-icon {
+    font-size: 2rem;
+    color: #007bff;
+    margin-right: 15px;
+}
+
+/* Job Details */
+.job-details {
+    flex: 1;
+}
+
+.job-title {
+    font-size: 1.5rem;
+    color: #333;
+    margin: 0;
+}
+
+.job-description {
+    color: #666;
+    font-size: 0.9rem;
+    margin: 5px 0;
+}
+
+/* Job Information Icons and Text */
+.job-location, .job-salary, .job-company {
+    color: #666;
+    font-size: 0.9rem;
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+}
+
+/* Icon Color and Spacing */
+.icon-light {
+    color: #aaa; /* Light black color */
+    margin-right: 5px;
+    font-size: 1rem;
+}
+
+/* Apply Button */
+.apply-form {
+    display: flex;
+    align-items: center;
+}
+
+.apply-button {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.apply-button:hover {
+    background-color: #0056b3;
+}
+.search-form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.search-form input[type="text"] {
+    width: 300px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.search-form button {
+    padding: 10px 15px;
+    margin-left: 5px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.search-form button:hover {
+    background-color: #0056b3;
+}

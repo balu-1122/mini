@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Listings</title>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/job_listing.css') }}">
+</head>
+<body>
+    <div class="job-listing-container">
+        <h1 class="job-listing-heading">List of Jobs</h1>
+
+        <!-- Search Bar -->
+        <form action="{{ url_for('search_jobs') }}" method="GET" class="search-form">
+            <input type="text" name="query" placeholder="Search jobs by title, company, or location..." required>
+            <button type="submit" class="search-button">Search</button>
+        </form>
+
+        <!-- Display Search Query -->
+        {% if search_query %}
+        <p class="search-results">Showing results for: "<strong>{{ search_query }}</strong>"</p>
+        {% endif %}
+
+        <!-- Job Listings -->
+        <div class="job-listing-box">
+            {% if jobs %}
+                {% for job in jobs %}
+                <div class="job-row">
+                    <div class="job-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="job-details">
+                        <h2 class="job-title">{{ job[1] }}</h2> <!-- Job Title -->
+                        <p class="job-description">{{ job[5] }}</p> <!-- Job Description -->
+                        <p class="job-location">
+                            <i class="fas fa-map-marker-alt icon-light"></i> Location: {{ job[3] }}
+                        </p>
+                        <p class="job-salary">
+                            <i class="fas fa-dollar-sign icon-light"></i> Salary: {{ job[4] }}
+                        </p>
+                        <p class="job-company">
+                            <i class="fas fa-building icon-light"></i> Company: {{ job[2] }}
+                        </p>
+                    </div>
+                    <form action="/apply/{{ job[0] }}" method="get" class="apply-form">
+                        <button type="submit" class="apply-button">View Details & Apply</button>
+                    </form>
+                </div>
+                {% endfor %}
+            {% else %}
+                <p class="no-jobs-message">No jobs found matching your search criteria.</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

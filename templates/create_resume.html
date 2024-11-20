@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Builder</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/res.css') }}"> 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+</head>
+<body>
+    <div class="resume-builder-container">
+        <h1>Resume Builder</h1>
+        <form action="/generate_resume" method="post" id="resume-form">
+            <div class="form-field">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            
+            <div class="form-field">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-field">
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+
+            <div class="form-field">
+                <label for="skills">Skills:</label>
+                <textarea id="skills" name="skills" required></textarea>
+            </div>
+
+            <div class="form-field">
+                <label for="experience">Experience:</label>
+                <textarea id="experience" name="experience" required></textarea>
+            </div>
+
+            <div class="form-field">
+                <label for="education">Education:</label>
+                <textarea id="education" name="education" required></textarea>
+            </div>
+
+            <button type="submit" id="generate-resume-btn">Generate Resume</button>
+        </form>
+    </div>
+
+   
+</body>
+</html>

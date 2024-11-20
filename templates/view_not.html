@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>No Applications</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/vi.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>No Applications for This Job</h1>
+        <p>Unfortunately, no one has applied for this job yet. You can wait or post another job.</p>
+        <a href="{{ url_for('dashboard') }}" class="btn btn-primary">Back to Job Listings</a>
+    </div>
+</body>
+</html>

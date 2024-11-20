@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Management Jobs</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pm.css') }}">
+</head>
+<body>
+    <h1>Product Management Jobs</h1>
+
+    {% if jobs %}
+        <ul>
+            {% for job in jobs %}
+                <li>
+                    <div class="job-details">
+                        <strong>Title:</strong> {{ job[1] }}<br>
+                        <strong>Company:</strong> {{ job[2] }}<br>
+                        <strong>Description:</strong> {{ job[3] }}<br>
+                        <strong>Location:</strong> {{ job[4] }}<br>
+                        <strong>Job Type:</strong> {{ job[5] }}<br>
+                        <strong>Salary:</strong> {{ job[6] }}<br>
+                        <strong>Vacancies:</strong> {{ job[7] }}<br>
+                    </div>
+                    <form action="/apply/{{ job[0] }}" method="GET">
+                        <button type="submit">Apply</button>
+                    </form>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No Product Management jobs available at the moment.</p>
+    {% endif %}
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+    const applyButtons = document.querySelectorAll("button[type='submit']");
+
+    applyButtons.forEach(button => {
+        button.addEventListener("click", function(event) {
+            event.target.textContent = "Applying..."; // Change the button text to "Applying..."
+            event.target.classList.add("applying"); // Add applying class for color change
+            setTimeout(() => {
+                event.target.textContent = "Apply"; // Reset text after 1 second
+                event.target.classList.remove("applying"); // Remove the applying class
+            }, 1000);
+        });
+    });
+});
+
+    </script>
+</body>
+</html>

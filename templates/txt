@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Listings</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/job_listing.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="job-listing-container">
+        <!-- Heading -->
+        <h1 class="job-listing-heading">List of Jobs</h1>
+
+        <!-- Job Listings -->
+        <div class="job-listing-box">
+            {% for job in jobs %}
+            <div class="job-row">
+                <div class="job-icon">
+                    <!-- Job icon, use Font Awesome or replace with an image -->
+                    <i class="fas fa-briefcase"></i>
+                </div>
+                <div class="job-details">
+                    <h2 class="job-title">{{ job[1] }}</h2>
+                    <p class="job-description">{{ job[2] }}</p>
+                    <p class="job-location">Location: {{ job[3] }}</p>
+                    <p class="job-salary">Salary: {{ job[4] }}</p>
+                </div>
+                  <form action="/apply/{{ job[0] }}" method="get" class="apply-form">
+                    <button type="submit" class="apply-button">View Details & Apply</button>
+                </form>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+<script>
+        // JavaScript for hover effect on individual job listing (job-row)
+        document.querySelectorAll('.job-row').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.05)';
+                this.style.boxShadow = '0 8px 20px rgba(0, 0, 0, 0.2)';
+            });
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1)';
+                this.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.1)';
+            });
+        });
+</script>
+</body>
+</html>

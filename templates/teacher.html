@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teaching and Educational Jobs</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/te.css') }}">
+</head>
+<body>
+    <h1>Teaching and Educational Jobs</h1>
+
+    {% if jobs %}
+        <ul>
+            {% for job in jobs %}
+                <li>
+                    <div class="job-details">
+                        <strong>Title:</strong> {{ job[1] }}<br>
+                        <strong>Company:</strong> {{ job[2] }}<br>
+                        <strong>Description:</strong> {{ job[3] }}<br>
+                        <strong>Location:</strong> {{ job[4] }}<br>
+                        <strong>Job Type:</strong> {{ job[5] }}<br>
+                        <strong>Salary:</strong> {{ job[6] }}<br>
+                        <strong>Vacancies:</strong> {{ job[7] }}<br>
+                    </div>
+                    <form action="/apply/{{ job[0] }}" method="GET">
+                        <button type="submit">Apply</button>
+                    </form>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No Teaching and Educational jobs are currently available.</p>
+    {% endif %}
+
+    <script src="{{ url_for('static', filename='js/job_application.js') }}"></script>
+</body>
+</html>

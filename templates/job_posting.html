@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post a Job</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/job_posting.css') }}">
+</head>
+<body>
+    <div class="form-container">
+        <!-- Heading with typewriter effect -->
+        <h1 id="typewriter-text"></h1>
+
+        <!-- Job Posting Form -->
+        <form action="/job_posting" method="POST">
+            <div class="form-field">
+                <label for="job_title">Job Title:</label>
+                <input type="text" id="job_title" name="job_title" required>
+            </div>
+
+            <div class="form-field">
+                <label for="company_name">Company Name:</label>
+                <input type="text" id="company_name" name="company_name" required>
+            </div>
+
+            <div class="form-field">
+                <label for="job_description">Job Description:</label>
+                <textarea id="job_description" name="job_description" required></textarea>
+            </div>
+
+            <div class="form-field">
+                <label for="location">Location:</label>
+                <input type="text" id="location" name="location" required>
+            </div>
+
+            <div class="form-field">
+                <label for="job_type">Job Type:</label>
+                <input type="text" id="job_type" name="job_type" required>
+            </div>
+
+            <div class="form-field">
+                <label for="salary">Salary:</label>
+                <input type="text" id="salary" name="salary" required>
+            </div>
+
+            <div class="form-field">
+                <label for="no_of_vacancies">Number of Vacancies:</label>
+                <input type="number" id="no_of_vacancies" name="no_of_vacancies" required>
+            </div>
+
+            <button type="submit" class="submit-btn">Post Job</button>
+        </form>
+    </div>
+
+    <script>
+        // JavaScript for typewriter effect
+        const text = "Post a Job";
+        const speed = 100;
+        let i = 0;
+
+        function typeWriter() {
+            if (i < text.length) {
+                document.getElementById("typewriter-text").innerHTML += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, speed);
+            }
+        }
+
+        window.onload = typeWriter;  // Start typewriter effect on page load
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Posting Details</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/job_posting.css') }}">
+</head>
+<body>
+    <div class="job-details-container">
+        <h1 class="job-title">Job for {{ job_title }}</h1>
+        <p class="company-name">Company Name: {{ company_name }}</p>
+        <p class="job-description">Job Description: {{ job_description }}</p>
+
+        <div class="job-info-section">
+            <h2>Location</h2>
+            <p>{{ location }}</p>
+        </div>
+        <div class="job-info-section">
+            <h2>Job Type</h2>
+            <p>{{ job_type }}</p>
+        </div>
+        <div class="job-info-section">
+            <h2>Salary</h2>
+            <p>{{ salary }}</p>
+        </div>
+        
+        <h1 class="vacancies">Number of Vacancies: {{ no_of_vacancies }}</h1>
+    </div>
+
+    <script>
+        // Optional dynamic JavaScript effect for title hover
+        document.querySelector('.job-title').addEventListener('mouseenter', function() {
+            this.style.color = '#0056b3';
+            this.style.transition = 'color 0.3s ease-in-out';
+        });
+        document.querySelector('.job-title').addEventListener('mouseleave', function() {
+            this.style.color = '#333';
+        });
+    </script>
+</body>
+</html>
+

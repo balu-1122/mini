@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Success</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Application Submitted!</h1>
+        <p>Your application for the position of <strong>{{ job_title }}</strong> at <strong>{{ company_name }}</strong> has been successfully sent to the recruiter.</p>
+        <a href="/job_listing">Back to Job Listings</a>
+    </div>
+    <script>
+        // Run a dynamic greeting message on page load
+        document.addEventListener("DOMContentLoaded", function() {
+            const container = document.querySelector(".container");
+            container.style.opacity = "1"; // Ensures the fade-in animation
+    
+            // Optional: Display an alert confirmation
+            setTimeout(() => {
+                alert("Your application has been sent! Good luck!");
+            }, 1000); // 1-second delay
+        });
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,339 @@
+body{
+    background-color: red;
+    color: red;
+}
+
+
+
+:root {
+    /* Color Variables */
+    --success-green: #4CAF50;
+    --primary-blue: #007bff;
+    --dark-blue-hover: #0056b3;
+    /* --background-light: #f4f4f9; */
+    --text-dark: #333;
+    --text-light: #fff;
+    --shadow-light: rgba(0, 0, 0, 0.1);
+    --shadow-dark: rgba(0, 0, 0, 0.15);
+}
+/* Navbar Styles */
+.head {
+    background-color: white;
+    color: rgb(252, 13, 13);
+    padding: 10px 0;
+    border-radius: 30px;
+    padding-left: 80px;
+    padding-right: 80px;
+    margin-left: 60px;
+    margin-right: 60px;
+    box-shadow: 2px 2px 4px 2px rgb(56, 54, 54);
+    margin-top: 8px;
+
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    margin-top: 10px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-image {
+    height: 40px;
+    margin-right: 10px;
+    margin-top: 10px;
+    align-items: center;
+}
+
+.logo-text {
+    font-size: 24px;
+    font-weight: bold;
+    align-items: baseline;
+}
+
+.menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.menu li {
+    margin-left: 20px;
+}
+
+.menu a {
+    color: black;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.menu a:hover {
+    text-decoration: underline;
+}
+
+
+/* Responsive Alignment */
+@media (max-width: 768px) {
+    .nav {
+        flex-direction: column;
+    }
+    .menu ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+/* Carousel Styles */
+.carousel .carousel-item {
+    position: relative;
+    height: 400px;
+    text-align: center;
+    margin-bottom:40px; /* Add gap below carousel */
+}
+
+.carousel .carousel-item img {
+    width: 100%;
+    height: 150%;
+    object-fit: cover;
+    margin-top: 15px;
+}
+
+.carousel .carousel-item h1 {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2.5em;
+    font-weight: bold;
+    color: var(--text-light);
+}
+
+.carousel .carousel-item a {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--primary-blue);
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: var(--text-light);
+    font-size: 1.2em;
+    transition: background-color 0.3s;
+}
+
+.carousel .carousel-item a:hover {
+    background-color: var(--dark-blue-hover);
+}
+
+/* Main Links and Explore by Category */
+.main-links, .category-links {
+    text-align: center;
+    padding: 40px 20px;
+    margin-bottom: 40px; /* Add space between sections */
+}
+
+.main-links .heading, .category-links .heading {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: var(--text-dark);
+}
+
+.main-links-row, .category-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.link-card, .category-item {
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    padding: 20px;
+    width: 180px;
+    text-align: center;
+    box-shadow: 0 4px 8px var(--shadow-light);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.link-card a, .category-item a {
+    color: var(--text-dark);
+    font-weight: bold;
+    font-size: 1.1em;
+    text-decoration: none;
+}
+
+.link-card i, .category-item i {
+    font-size: 1.5em;
+    color: var(--primary-blue);
+    margin-bottom: 10px;
+}
+
+/* Specific Styling for Data Science (increase font size) */
+.category-item[data-category="Data Science"] a {
+    font-size: 1.2em;
+    padding-bottom: 50px;
+    margin-bottom: 0px;
+    margin-top: 40px;
+}
+
+.category-item{
+    margin-bottom: 40px;
+    margin-right: 20px;
+}
+
+/* Hover Effects for Cards */
+.link-card:hover, .category-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px var(--shadow-dark);
+}
+/* Job Listings Section */
+.job-listings {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+.job-listings-heading {
+    
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: var(--text-dark);
+    font-weight: bold;
+/* Container for individual job cards */
+
+}
+
+/* Style for each job card */
+.job-container {
+    width: 250px;
+    padding: 15px;
+    background-color: #f4f4f4;
+    border: 2px solid #ddd;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 30px;
+    padding-top: 30px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+/* Zoom effect on hover */
+.job-container:hover {
+    transform:translateY(-100%);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transition:transform 0.3s ease;
+}
+.job-container:hover::after{transform:translateY(0)}
+
+/* Style for the job position to make it look like a category heading */
+.job-position {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    background-color: #e0e0e0;
+    padding: 5px 10px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-bottom: 10px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+/* Style for the job details to appear on hover */
+.job-details {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff;
+    padding: 10px;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+/* Show job details on hover */
+.job-container:hover .job-details {
+    display: block;
+}
+
+/* Styling the apply button */
+.apply-button {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 12px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.apply-button:hover {
+    background-color: #0056b3;
+}
+
+/* View All Jobs button */
+.view-all-jobs {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #28a745;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.view-all-jobs:hover {
+    background-color: #218838;
+}
+
+
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    .text-overlay h1 {
+        font-size: 35px; /* Smaller text size on smaller screens */
+    }
+
+    .text-overlay p {
+        font-size: 16px; /* Smaller paragraph text on smaller screens */
+    }
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    background-color: var(--text-dark);
+    color: var(--text-light);
+    padding: 15px;
+    font-size: 0.9em;
+    margin-top: 40px;
+}
+
+/* Utility Classes */
+.fadeIn {
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

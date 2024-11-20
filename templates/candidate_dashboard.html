@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candidate Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="profile-section">
+            <img src="{{ url_for('static', filename='images/' + session['profile_photo']) }}" alt="Profile Photo" class="profile-photo">
+            <h2>{{ session['name'] }}</h2>
+            <p>Mobile: {{ session['mobile'] }}</p>
+            <p>Email: {{ session['email'] }}</p>
+        </div>
+
+        <div class="job-history-section">
+            <h2>Job History</h2>
+            <ul>
+                <!-- Example job history items; replace with dynamic data -->
+                <li>Software Engineer - Status: Applied</li>
+                <li>Data Analyst - Status: Rejected</li>
+                <li>Product Manager - Status: Interview Scheduled</li>
+            </ul>
+        </div>
+        
+        <a href="/logout" class="logout-button">Logout</a>
+    </div>
+</body>
+</html>

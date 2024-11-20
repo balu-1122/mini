@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Support Jobs</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/cs.css') }}">
+</head>
+<body>
+    <h1>Customer Support Jobs</h1>
+
+    {% if jobs %}
+        <ul>
+            {% for job in jobs %}
+                <li>
+                    <div class="job-details">
+                        <strong>Title:</strong> {{ job[1] }}<br> <!-- job_title -->
+                        <strong>Company:</strong> {{ job[2] }}<br> <!-- company_name -->
+                        <strong>Description:</strong> {{ job[3] }}<br> <!-- job_description -->
+                        <strong>Location:</strong> {{ job[4] }}<br> <!-- location -->
+                        <strong>Job Type:</strong> {{ job[5] }}<br> <!-- job_type -->
+                        <strong>Salary:</strong> {{ job[6] }}<br> <!-- salary -->
+                        <strong>Vacancies:</strong> {{ job[7] }}<br> <!-- no_of_vacancies -->
+                    </div>
+                    <form action="/apply/{{ job[0] }}" method="GET">
+                        <button type="submit">Apply</button>
+                    </form>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No Customer Support jobs available at the moment.</p>
+    {% endif %}
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+    const applyButtons = document.querySelectorAll("button[type='submit']");
+
+    applyButtons.forEach(button => {
+        button.addEventListener("click", function(event) {
+            event.target.textContent = "Applying..."; // Change button text when clicked
+            event.target.classList.add("applying"); // Optional: Add a class for styling changes
+            setTimeout(() => {
+                event.target.textContent = "Apply"; // Reset text after 1 second
+                event.target.classList.remove("applying"); // Reset button style
+            }, 1000);
+        });
+    });
+});
+
+    </script>
+</body>
+</html>

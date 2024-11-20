@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply for {{ job[0] }} - {{ job[1] }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/apply.css') }}">
+</head>
+<body>
+    <h1> Description : {{job[2]}}</h1>
+    <h1>Apply for Job: {{ job[0] }} at {{ job[1] }}</h1>
+    <form action="/apply/{{ job_id }}" method="POST" enctype="multipart/form-data">
+        <label for="name">Name:</label>
+        <input type="text" name="name" required><br>
+
+        <label for="email">Email:</label>
+        <input type="email" name="email" required><br>
+
+        <label for="phone">Phone:</label>
+        <input type="text" name="phone" required><br>
+
+        <label for="resume">Upload Resume (PDF, DOC, DOCX):</label>
+        <input type="file" name="resume" accept=".pdf,.doc,.docx" required><br>
+
+        <input type="submit" value="Submit Application">
+    </form>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const form = document.querySelector("form");
+            const fileInput = document.querySelector("input[type='file']");
+            const submitButton = document.querySelector("input[type='submit']");
+    
+            // Add event listener for form submission
+            form.addEventListener("submit", function(event) {
+                const file = fileInput.files[0];
+                if (file && !['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'].includes(file.type)) {
+                    alert("Please upload a valid resume file (PDF, DOC, DOCX).");
+                    event.preventDefault();
+                } else {
+                    submitButton.value = "Submitting...";
+                }
+            });
+    
+            // Dynamic placeholder effect
+            document.querySelectorAll("input[type='text'], input[type='email']").forEach(input => {
+                input.addEventListener("focus", function() {
+                    this.style.backgroundColor = "#e8f0fe";
+                });
+                input.addEventListener("blur", function() {
+                    this.style.backgroundColor = "white";
+                });
+            });
+        });
+    </script>
+    
+</body>
+</html>

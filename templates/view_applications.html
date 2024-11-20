@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Applications for Job ID {{ job_id }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/view.css') }}">
+</head>
+<body>
+    <h1>Applications for Job ID {{ job_id }}</h1>
+    {% if applications %}
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Resume</th>
+            </tr>
+            {% for app in applications %}
+            <tr>
+                <td>{{ app[0] }}</td> <!-- Name -->
+                <td>{{ app[1] }}</td> <!-- Email -->
+                <td>{{ app[2] }}</td> <!-- Phone -->
+                <td><a href="{{ url_for('static', filename='uploads/' + app[3]) }}" target="_blank">View Resume</a></td> <!-- Resume -->
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No applications available.</p>
+    {% endif %}
+</body>
+</html>
